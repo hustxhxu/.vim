@@ -215,6 +215,7 @@ nnoremap <silent> <leader>l :set list! list?<CR>
 set noerrorbells      " shut up
 set visualbell t_vb=  " use visual bell instead of error bell
 set mousehide         " hide mouse pointer when typing
+set mouse=a         " hide mouse pointer when typing
 
 if exists("+showtabline")
   set showtabline=1 " only if there are at least two tabs (default)
@@ -313,7 +314,8 @@ set linespace=2
 
 if has("folding")
   set foldenable        " enable folding
-  set foldmethod=syntax " fold based on syntax highlighting
+  " set foldmethod=syntax " fold based on syntax highlighting
+  set foldmethod=indent " fold based on syntax highlighting
   set foldlevelstart=99 " start editing with all folds open
 
   " toggle folds
@@ -367,9 +369,9 @@ set nobomb            " don't clutter files with Unicode BOMs
 set hidden            " enable switching between buffers without saving
 set switchbuf=usetab  " switch to existing tab then window when switching buffer
 set autoread          " auto read files changed only from the outside of ViM
-if has("persistent_undo") && (&undofile)
-  set autowriteall    " auto write changes if persistent undo is enabled
-endif
+" if has("persistent_undo") && (&undofile)
+"   set autowriteall    " auto write changes if persistent undo is enabled
+" endif
 set fsync             " sync after write
 set confirm           " ask whether to save changed files
 
@@ -492,14 +494,14 @@ nnoremap ` '
 " -- editing -------------------------------------------------------------------
 
 set showmode      " always show the current editing mode
-set nowrap        " don't wrap lines
+" set nowrap        " don't wrap lines
 set linebreak     " yet if enabled break at word boundaries
 
-if has("multi_byte")  " if multi_byte is available,
-  set showbreak=↪     " use pretty Unicode marker
-else                  " otherwise,
-  set showbreak=>     " use ASCII character
-endif
+" if has("multi_byte")  " if multi_byte is available,
+"   set showbreak=↪     " use pretty Unicode marker
+" else                  " otherwise,
+"   set showbreak=>     " use ASCII character
+" endif
 
 set nojoinspaces  " insert only one space after '.', '?', '!' when joining lines
 set showmatch     " briefly jumps the cursor to the matching brace on insert
@@ -657,10 +659,10 @@ nnoremap Q <NOP>
 vnoremap . :normal .<CR>
 
 " make v enter blockwise visual mode, and CTRL-V enter visual mode
-nnoremap v <C-V>
-nnoremap <C-V> v
-vnoremap v <C-V>
-vnoremap <C-V> v
+" nnoremap v <C-V>
+" nnoremap <C-V> v
+" vnoremap v <C-V>
+" vnoremap <C-V> v
 
 
 " -- searching -----------------------------------------------------------------
