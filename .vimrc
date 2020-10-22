@@ -771,3 +771,7 @@ if filereadable(expand("~/.pathogen_disabled"))
 endif
 silent! call pathogen#infect()
 silent! call pathogen#helptags()
+
+if &diff
+  syntax off
+endif
