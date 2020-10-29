@@ -834,7 +834,7 @@ func SetTitle()
 		call setline(15,"import os")
 		call setline(16,"pwd = os.path.dirname(os.path.abspath(__file__))")
 		call setline(17,"recommend_alg_idx = pwd.find('recommend_algorithm')")
-		call setline(18,"recommend_alg_path = os.path.join(pwd[:recommend_alg_idx], 'recommend_algorithm'))")
+		call setline(18,"recommend_alg_path = os.path.join(pwd[:recommend_alg_idx], 'recommend_algorithm')")
 		call setline(19,"")
 
 	else
