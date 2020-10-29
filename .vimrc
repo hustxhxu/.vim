@@ -822,10 +822,9 @@ func SetTitle()
 		call setline(15,"set -u")
 		call setline(16,"set -eo pipefail")
 		call setline(17,"")
-		call setline(18,"CWD=$(dirname $0)")
-		call setline(19,"_PWD=$(cd $CWD;pwd)")
-		call setline(20,"recommend_alg_path=${_PWD%recommend_algorithm*}recommend_algorithm")
-		call setline(21,"")
+		call setline(18,"CWD=$(dirname $0) && _PWD=$(cd $CWD;pwd) && rep_name=recommend_algorithm")
+		call setline(19,"rep_dir=${_PWD%${rep_name}*}${rep_name}")
+		call setline(20,"")
 
 	elseif &filetype == 'python' 
 		call setline(1,"#!/usr/bin/python") 
