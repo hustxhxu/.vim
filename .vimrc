@@ -795,6 +795,7 @@ func SetComment()
 endfunc
 " 加入shell,Makefile注释
 func SetComment_sh()
+	call setline(3,"")
 	call setline(4, "#================================================================") 
 	call setline(5, "#   Copyright (C) ".strftime("%Y")." Sangfor Ltd. All rights reserved.")
 	call setline(6, "#   ") 
@@ -806,7 +807,6 @@ func SetComment_sh()
 	call setline(12, "#")
 	call setline(13, "#================================================================")
 	call setline(14, "")
-	call setline(15, "")
 endfunc 
 " 定义函数SetTitle，自动插入文件头 
 func SetTitle()
@@ -817,14 +817,25 @@ func SetTitle()
  
 	elseif &filetype == 'sh' 
 		call setline(1,"#!/bin/sh") 
-		call setline(2,"set -u")
-		call setline(3,"set -eo pipefail")
+		call setline(2,"")
 		call SetComment_sh()
+		call setline(15,"set -u")
+		call setline(16,"set -eo pipefail")
+		call setline(17,"")
+		call setline(18,"CWD=$(dirname $0)")
+		call setline(19,"_PWD=$(cd $CWD;pwd)")
+		call setline(20,"recommend_alg_path=${_PWD%recommend_algorithm*}recommend_algorithm")
+		call setline(21,"")
 
 	elseif &filetype == 'python' 
 		call setline(1,"#!/usr/bin/python") 
 		call setline(2,"# -*- coding: utf-8 -*-")
 		call SetComment_sh()
+		call setline(15,"import os")
+		call setline(16,"pwd = os.path.dirname(os.path.abspath(__file__))")
+		call setline(17,"recommend_alg_idx = pwd.find('recommend_algorithm')")
+		call setline(18,"recommend_alg_path = os.path.join(pwd[:recommend_alg_idx], 'recommend_algorithm'))")
+		call setline(19,"")
 
 	else
 	     call SetComment()
