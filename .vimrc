@@ -795,18 +795,18 @@ func SetComment()
 endfunc
 " 加入shell,Makefile注释
 func SetComment_sh()
-	call setline(3, "#================================================================") 
-	call setline(4, "#   Copyright (C) ".strftime("%Y")." Sangfor Ltd. All rights reserved.")
-	call setline(5, "#   ") 
-	call setline(6, "#   Filename: ".expand("%:t")) 
-	call setline(7, "#   Author: xhxu")
-	call setline(8, "#   Create: ".strftime("%Y-%m-%d %H:%M")) 
-	call setline(9, "#   Email: xuxuanhong1@bigo.sg") 
-	call setline(10, "#   Description: ") 
-	call setline(11, "#")
-	call setline(12, "#================================================================")
-	call setline(13, "")
+	call setline(4, "#================================================================") 
+	call setline(5, "#   Copyright (C) ".strftime("%Y")." Sangfor Ltd. All rights reserved.")
+	call setline(6, "#   ") 
+	call setline(7, "#   Filename: ".expand("%:t")) 
+	call setline(8, "#   Author: xhxu")
+	call setline(9, "#   Create: ".strftime("%Y-%m-%d %H:%M")) 
+	call setline(10, "#   Email: xuxuanhong1@bigo.sg") 
+	call setline(11, "#   Description: ") 
+	call setline(12, "#")
+	call setline(13, "#================================================================")
 	call setline(14, "")
+	call setline(15, "")
 endfunc 
 " 定义函数SetTitle，自动插入文件头 
 func SetTitle()
@@ -817,12 +817,13 @@ func SetTitle()
  
 	elseif &filetype == 'sh' 
 		call setline(1,"#!/bin/sh") 
-		call setline(2,"")
+		call setline(2,"set -u")
+		call setline(3,"set -eo pipefail")
 		call SetComment_sh()
 
 	elseif &filetype == 'python' 
 		call setline(1,"#!/usr/bin/python") 
-		call setline(2,"")
+		call setline(2,"# -*- coding: utf-8 -*-")
 		call SetComment_sh()
 
 	else
