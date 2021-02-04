@@ -866,3 +866,5 @@ func SetTitle()
 	endif
 endfunc
 " ----------
+
+hi comment ctermfg=6
