@@ -840,6 +840,7 @@ func SetTitle()
 		call setline(23,"handler.setFormatter(formatter)")
 		call setline(24,"_logger.addHandler(handler)")
 		call setline(25,"")
+		call setline(26,"if __name__ == '__main__':")
 
 	else
 	     call SetComment()
@@ -867,4 +868,4 @@ func SetTitle()
 endfunc
 " ----------
 
-hi comment ctermfg=6
+hi comment ctermfg=8
